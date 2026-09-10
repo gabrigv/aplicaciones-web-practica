@@ -16,4 +16,4 @@
 
 [github](https://github.com)
 
-![Captura horario](./practica-01-html-basico/horario.png)
+![Captura horario](./horario.png)
