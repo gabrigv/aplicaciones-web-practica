@@ -15,3 +15,5 @@
 3. Elemento 3
 
 [github](https://github.com)
+
+![Captura horario](./practica-01-html-basico/horario.png)
