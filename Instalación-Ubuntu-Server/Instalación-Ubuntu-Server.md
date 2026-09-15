@@ -1,3 +1,3 @@
 # Instalación Ubuntu Server
 
-![Captura Error Ubuntu Server](./cap)
+![Captura Error Ubuntu Server](./CapturaError.png)
