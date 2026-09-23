@@ -21,6 +21,7 @@ Se puede dejar desactivado de momento.
 
 ### Paso 5 Cierra el gestor
 Deberia de quedar algo asi
+
 ![Captura De La Configuracion De Red VirtualBox](./ConfRedVirtualBox.png)
 
 ## Paso 5 Instalar Ubuntu Server 24.04
