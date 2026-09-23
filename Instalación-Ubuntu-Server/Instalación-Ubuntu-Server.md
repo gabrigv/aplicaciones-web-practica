@@ -24,6 +24,20 @@ Deberia de quedar algo asi
 
 ![Captura De La Configuracion De Red VirtualBox](./ConfRedVirtualBox.png)
 
+## Paso 2 Crear La Maquina Virtual
+
+### Paso 1 Nueva Maquina
+![Captura De Crear La Maquina Ubuntu](./UbuntuNewMachine.png)
+
+### Paso 2 Memoria RAM
+![Captura De Configuracion RAM De La Maquina Ubuntu](./UbuntuNewMachineRAM.png)
+
+### Paso 3 Disco Duro Virtual
+![Captura De Configuracion Del Disco Duro De La Maquina Virtual](./UbuntuNewMachineStorage.png)
+
+### Paso 4 Procesador (Opcional)
+Aqui hay que ir a configuracion cuando le hemos dado a terminar darle a sistema luego procesador y poner 2 CPUs, este paso lo podriamos haber hecho en el paso 2 al poner la memoria RAM esta opcional por si no lo has hecho
+
 ## Paso 5 Instalar Ubuntu Server 24.04
 
 ### Paso 1 Idioma
