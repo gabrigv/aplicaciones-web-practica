@@ -12,7 +12,7 @@ Entramos a la carpeta sites-available, de ahí entramos en el archivo 000-defaul
 
 Luego nos vamos a este directorio cd /var/www/html/ hacemos sudo nano index.html y hay podemos modificar nuestra propia pagina
 
-# Deshabilitar antigua página y crear una nueva
+# Deshabilitar pagina antigua y creamos una nueva
 
 1- El archivo 000-default.conf que está en sites-available lo duplicamos y lo llamamos smr.conf.
 
