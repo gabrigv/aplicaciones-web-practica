@@ -55,4 +55,7 @@ Ahora iniciamos una maquina virtual y nos aseguramos que este en la misma red, l
 
 ## Ubuntu
 
-sudo nano /etc/hosts
+sudo nano /etc/hosts | Nos metemos a la conf de los hosts locales
+
+ip del servidor www.smr.com | Tenemos que poner esto en una linea mas
+
