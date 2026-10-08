@@ -45,8 +45,11 @@ sudo nano /etc/apache2/sites-available/smr.conf | Este sera el fichero de config
 # Reiniciar Apache
 
 sudo a2ensite smr.conf | Activa el fichero smr.conf
+
 sudo a2dissite 000-default.conf | Desactiva el fichero predeterminado
+
 sudo apachectl configtest | Esto comprueba si hay errores en alguna sintaxis en los archivos de apache
+
 sudo systemctl restart apache2 | Reinicia el sistema de apache
 
 # Comprobación
