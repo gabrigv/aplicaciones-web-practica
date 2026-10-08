@@ -23,7 +23,7 @@ sudo nano /etc/apache2/ports.conf | Debajo de Listen 80 hay que poner 9999 sirve
 sudo nano /etc/apache2/sites-available/smr.conf | Este sera el fichero de configuracion de la pagina
 
 # Ponle este codigo a smr.conf
-
+```apache
 <VirtualHost *:80>
     ServerName www.smr.com
     DocumentRoot /var/www/smr/web
@@ -41,7 +41,7 @@ sudo nano /etc/apache2/sites-available/smr.conf | Este sera el fichero de config
         Require valid-user
     </Directory>
 </VirtualHost>
-
+```
 # Reiniciar Apache
 
 sudo a2ensite smr.conf | Activa el fichero smr.conf
