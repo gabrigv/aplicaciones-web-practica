@@ -1,4 +1,4 @@
-# Lo que haremos en esta practica es crear una pagina web con apache y que con una maquina virtual podamos entrar poniendo el nombre de la pagina
+# Crear una pagina web con apache y que con una maquina virtual podamos entrar poniendo el url
 
 ssh gabriel@ip del servidor | para conectarnos al servidor
 
@@ -18,3 +18,41 @@ sudo apt install apache2-utils -y | para instalar apache2 utils
 
 sudo htpasswd -c /etc/apache2/.htpasswd alumno | esto sirve para poner la contraseña, en el directorio /etc/apache2/.htpasswd con el user alumno
 
+sudo nano /etc/apache2/ports.conf | Debajo de Listen 80 hay que poner 9999 sirve para que escuche por ese puerto en el navegador
+
+sudo nano /etc/apache2/sites-available/smr.conf | Este sera el fichero de configuracion de la pagina
+
+# Ponle este codigo a smr.conf
+
+<VirtualHost *:80>
+    ServerName www.smr.com
+    DocumentRoot /var/www/smr/web
+</VirtualHost>
+
+<VirtualHost *:9999>
+    ServerName www.smr.com
+    DocumentRoot /var/www/smr/intranet
+    DirectoryIndex intranet.html
+
+    <Directory /var/www/smr/intranet>
+        AuthType Basic
+        AuthName "Intranet SMR"
+        AuthUserFile /etc/apache2/.htpasswd
+        Require valid-user
+    </Directory>
+</VirtualHost>
+
+# Reiniciar Apache
+
+sudo a2ensite smr.conf | Activa el fichero smr.conf
+sudo a2dissite 000-default.conf | Desactiva el fichero predeterminado
+sudo apachectl configtest | Esto comprueba si hay errores en alguna sintaxis en los archivos de apache
+sudo systemctl restart apache2 | Reinicia el sistema de apache
+
+# Comprobación
+
+Ahora iniciamos una maquina virtual y nos aseguramos que este en la misma red, lo podemos hacer en conf de la MV en red poniendo NAT
+
+## Ubuntu
+
+sudo nano /etc/hosts
