@@ -59,3 +59,8 @@ sudo nano /etc/hosts | Nos metemos a la conf de los hosts locales
 
 ip del servidor www.smr.com | Tenemos que poner esto en una linea mas
 
+Deberia de quedar asi
+
+![Captura /etc/hosts](./etc-hosts.png)
+
+Ahora si nos metemos al navegador por ejemplo firefox si escribimos http://www.smr.com deberia de funcionar y si ahora ponemos http://www.smr.com:9999 y nos meteriamos a la que pide contraseña.
