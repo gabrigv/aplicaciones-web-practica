@@ -45,7 +45,7 @@ Alguien entra a la web, apache mantiene la web, php ejecuta el wordpress y maria
 
 ### 1. Preparación del sistema
 
-´´´
+´´´apache
 sudo apt update
 systemctl is-active apache2
 ´´´
