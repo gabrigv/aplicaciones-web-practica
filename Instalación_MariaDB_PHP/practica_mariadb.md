@@ -52,4 +52,6 @@ systemctl is-active apache2
 
 La linea del segundo comando tiene que responder active.
 
+![Active apache2](./active_apache2.png)
+
 ### 2. Instalación de MariaDB
