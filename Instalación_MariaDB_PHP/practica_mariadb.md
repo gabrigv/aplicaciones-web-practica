@@ -27,3 +27,8 @@ Al terminar la práctica serás capaz de:
 
 ## 4. Antes de empezar: ¿qué es una base de datos?
 
+Una base de datos es como un archivador donde un programa guarda su información. Una base de datos esta organizada en tablas como en una hoja de calculo, con columnas y filas.
+
+### ¿Para qué necesitamos WordPress?
+
+WordPress guarda en la base de datos todo lo que no son ficheros: 
