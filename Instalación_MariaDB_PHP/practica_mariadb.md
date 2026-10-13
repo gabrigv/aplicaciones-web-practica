@@ -31,4 +31,21 @@ Una base de datos es como un archivador donde un programa guarda su información
 
 ### ¿Para qué necesitamos WordPress?
 
-WordPress guarda en la base de datos todo lo que no son ficheros: 
+WordPress guarda en la base de datos todo lo que no son ficheros: las entradas, paginas, comentarios, usuarios y configuracion del sitio. Cada vez que alguien visita la web WordPress le pide los datos a la base de datos.
+
+### ¿Qué es MariaDB?
+
+MariaDB es un programa que gestiona la base de datos: la guarda, protege y responde a las peticiones.
+
+Encaja de esta manera:
+
+Alguien entra a la web, apache mantiene la web, php ejecuta el wordpress y mariadb guarda los datos.
+
+## 5. Desarollo de la práctica
+
+### 1. Preparación del sistema
+
+´´´
+sudo apt update
+systemctl is-active apache2
+´´´
