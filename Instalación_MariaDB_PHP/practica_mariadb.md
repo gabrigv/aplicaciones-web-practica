@@ -55,3 +55,53 @@ La linea del segundo comando tiene que responder active.
 ![Active apache2](./active_apache2.png)
 
 ### 2. Instalación de MariaDB
+
+```bash
+sudo apt install mariadb-server -y
+```
+
+Comprueba la version de mariadb:
+
+```bash
+mariadb --version
+```
+
+La respuesta de la version tiene que ser algo parecido a esto:
+
+```bash
+mariadb Ver 15.1 Distrib 10.11.14-MariaDB, for debian-linux-gnu (x86_64)
+```
+
+![Version Mariadb](./mariadb_version.png)
+
+### 3. Comprobacion del funcionamiento
+
+#### 3.1. Estado del servicio
+
+```bash
+sudo systemctl status mariadb
+systemctl is-enabled mariadb
+```
+
+El primer comando tiene que responder active (running) y el segundo enabled.
+
+#### 3.2. Entrar en la base de datos
+
+```bash
+sudo mariadb
+```
+
+Si todo va bien deberia mostrar lo que esta en la captura, cuando estes dentro pon exit para salir.
+
+![Enter mariadb](./enter-mariadb.png)
+
+- ¿Qué diferencia hay entre active (running) y enabled?
+
+A
+
+- ¿Qué pasaría con la web de WordPress si MariaDB estuviera active pero no enabled y se reiniciara el servidor?
+
+A
+
+### 4. Comandos principales
+
