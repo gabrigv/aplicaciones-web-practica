@@ -97,11 +97,28 @@ Si todo va bien deberia mostrar lo que esta en la captura, cuando estes dentro p
 
 - ¿Qué diferencia hay entre active (running) y enabled?
 
-A
+En MariaDB active (running) describe el estado actual del programa y enabled dice como esta la aplicacion configurada al iniciar al sistema.
 
 - ¿Qué pasaría con la web de WordPress si MariaDB estuviera active pero no enabled y se reiniciara el servidor?
 
-A
+Si MariaDB estuviera active pero no enabled y se reiniciara el servidor al cargar el sitio web se veria algo como error de conexion con la base de datos, para arreglarlo se deberia de poner en enable MariaDB haciendo el comando:
+```bash
+sudo systemctl start mariadb
+```
 
 ### 4. Comandos principales
+
+Estos son los comandos principales de MariaDB:
+
+sudo systemctl start mariadb - Arranca el programa y lo pone en enabled
+
+sudo systemctl stop mariadb - Apaga el programa y lo pone en disabled
+
+sudo systemctl restart mariadb - Reinicia el programa
+
+sudo systemctl status mariadb - Muestra el estado del programa como por ejemplo Active (running)
+
+sudo systemctl enable mariadb - Hace que la proxima vez que enciendas el equipo MariaDB este en enabled
+
+### 5. ¿Qué pasa si MariaDB está parado?
 
