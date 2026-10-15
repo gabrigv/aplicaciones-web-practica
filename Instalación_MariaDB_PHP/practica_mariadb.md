@@ -10,10 +10,10 @@ Fecha: 15-10-2026
 
 Al terminar la práctica serás capaz de:
 
-• Explicar qué es una base de datos y para qué la necesita WordPress.
-• Instalar MariaDB sobre Ubuntu 24.04 y comprobar que funciona.
-• Instalar PHP y comprobar que Apache lo ejecuta.
-• Dejar el servidor (Linux, Apache, MariaDB y PHP) listo para instalar WordPress
+- Explicar qué es una base de datos y para qué la necesita WordPress.
+- Instalar MariaDB sobre Ubuntu 24.04 y comprobar que funciona.
+- Instalar PHP y comprobar que Apache lo ejecuta.
+- Dejar el servidor (Linux, Apache, MariaDB y PHP) listo para instalar WordPress
 
 ## 2. Requisitos previos
 
