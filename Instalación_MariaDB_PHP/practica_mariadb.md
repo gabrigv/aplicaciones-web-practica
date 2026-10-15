@@ -122,3 +122,64 @@ sudo systemctl enable mariadb - Hace que la proxima vez que enciendas el equipo 
 
 ### 5. ¿Qué pasa si MariaDB está parado?
 
+Vamos a parar MariaDB a proposito para ver el error, luego lo volveremos a activar.
+
+![Error mariadb](./error_mariadb.png)
+
+### 6. Instalación de PHP
+
+```bash
+sudo apt install php libapache2-mod-php php-mysql php-curl php-gd php-mbstring php-xml php-zip
+php-intl -y
+```
+
+Luego para ver que se a instalado correctamente y ver la versión es
+
+```bash
+php -v
+```
+
+Reinicia Apache y comprueba que ha cargado PHP
+
+```bash
+sudo systemctl restart apache2
+```
+Comprueba que PHP puede hablar con MariaDB, debe aparecer mysqli, mysqlnd y pdo_mysql.
+
+```bash
+php -m | grep -i mysql
+```
+
+Ahora desactiva todas las paginas que tengas en apache y comprobaremos que apache ejecuta PHP
+
+```bash
+echo '<?php phpinfo();' | sudo tee /var/www/html/info.php
+```
+
+Ahora abre http://ip_servidor/info.php en el navegador. Debe aparecer una página morada de PHP.
+
+![version php](./php_version.png)
+
+![pagina php](infophp.png)
+
+Por ultimo borra el fichero de php que acabamos de crear
+
+```bash
+sudo rm /var/www/html/info.php
+ls /var/www/html
+```
+
+¿Por qué es peligroso dejar info.php en un servidor real? ¿Para qué sirve el paquete php-mysql?
+
+Dejar el archivo info.php en un servidor es peligroso porque expone de forma pública datos de la configuración de tu servidor, lo que facilita el trabajo de los delincuentes. El paquete php-mysql sirve como el conector que permite a tu aplicación PHP comunicarse con bases de datos MySQL.
+
+### 7. Comprobación final
+
+```bash
+systemctl is-active apache2 mariadb
+php -v
+```
+
+Debe responder active para saber que si funciona.
+
+![Tabla LAMP](tabla-lamp.png)
