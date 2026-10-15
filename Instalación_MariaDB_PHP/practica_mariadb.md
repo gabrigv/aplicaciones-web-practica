@@ -9,6 +9,7 @@ Fecha: 15-10-2026
 ## 1. Objetivos
 
 Al terminar la práctica serás capaz de:
+
 • Explicar qué es una base de datos y para qué la necesita WordPress.
 • Instalar MariaDB sobre Ubuntu 24.04 y comprobar que funciona.
 • Instalar PHP y comprobar que Apache lo ejecuta.
