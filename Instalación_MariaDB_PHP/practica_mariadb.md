@@ -1,5 +1,9 @@
 # Instalación de MariaDB en Ubuntu 24.04
 
+Nombre: Gabriel
+Curso: 2 SMX
+Fecha: 15-10-2026
+
 ## 1. Objetivos
 
 Al terminar la práctica serás capaz de:
