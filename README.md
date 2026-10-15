@@ -1,4 +1,4 @@
-# aplicaciones-web-practica
+# Aplicaciones-web-practica
 Repositorio para las practicas de aplicaciones web
 
 ### Nombre: Gabriel
