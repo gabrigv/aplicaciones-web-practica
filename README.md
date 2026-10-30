@@ -9,4 +9,4 @@ Repositorio para las practicas de aplicaciones web
 3.  [ConfigApache2](ConfigApache2/ConfiguracionApache2.md)
 4.  [ApacheDNS](ConfigApache2/Apache2FakeDNS.md)
 5.  [Instalación-MariaDB](Instalación_MariaDB_PHP/practica_mariadb.md)
-6.  [Instalación-wordpress](Instalación-Wordpress/Instalación-wordpress.md)
+6.  [Instalación-wordpress](Instalación-Wordpress/practica-wordpress.md)
