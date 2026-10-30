@@ -25,3 +25,17 @@ Al terminar la práctica serás capaz de:
 
 ## 3. Normas de la memoria
 
+1. Crear el repositorio en github llamado practica-wordpress.md y enlazarlo a el readme.md
+2. Para cada paso incluye:
+   - El comando ejecutado, en un bloque de código.
+   - La salida relevante del terminal.
+   - Una captura de pantalla (carpeta img/) cuando se indique con captura.
+   - Una explicación con tus propias palabras de qué hace y por qué.
+3. Haz commits frecuentes con mensajes descriptivos.
+4. Responde a las preguntas de reflexión de cada apartado.
+5. No subir contraseñas a github si aparece en un comando o captura tapalo.
+
+## 4. Antes de empezar: ¿qué es WordPress?
+
+WordPress es un gestor de contenidos hecho en PHP. Sirve para crear y mantener una web, con sus entradas, páginas, imágenes y usuarios, desde un panel de administración, sin necesidad de programar cada página a mano.
+
