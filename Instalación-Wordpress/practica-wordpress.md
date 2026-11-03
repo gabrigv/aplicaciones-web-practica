@@ -51,7 +51,7 @@ Encaja de esta manera:
 
 Alguien entra a la web, Apache sirve la página, PHP ejecuta WordPress y MariaDB guarda los datos.
 
-WordPress va en un sitio nuevo con su propio virtualhost y el puerto 8080. Así los sitios que ya tenía no se tocan.
+WordPress va en un sitio nuevo con su propio virtualhost y el puerto 8080. Así el sitio que ya tenía no se toca.
 
 ## 5. Desarrollo de la práctica
 
@@ -66,13 +66,13 @@ ls /etc/apache2/sites-enabled/
 grep Listen /etc/apache2/ports.conf
 ```
 
-Las dos primeras líneas tienen que responder active. El tercer comando muestra los sitios habilitados y el cuarto los puertos en los que escucha Apache.
+Los dos servicios responden active y tengo PHP 8.3.6. El tercer comando muestra los sitios habilitados y el cuarto los puertos en los que escucha Apache.
 
-![Punto de partida](img/punto-partida.png)
+![Punto de partida](wordpress_1.png)
 
 - ¿Qué sitios tienes habilitados y en qué puertos escucha Apache? ¿Qué puerto vas a usar para WordPress y por qué no el 80?
 
-Tengo habilitados estos sitios: COMPLETAR. Apache escucha en estos puertos: COMPLETAR. Para WordPress uso el puerto 8080 porque está libre. No uso el 80 porque ya lo usa otro sitio y así cada sitio tiene su puerto.
+Tengo habilitado el sitio iris.conf. Apache escucha en los puertos 80 y 7009, y también tiene el 443 configurado para conexiones seguras. Para WordPress uso el puerto 8080 porque está libre. No uso el 80 porque ya lo usa Iris y así cada sitio tiene su puerto.
 
 ### 2. Crear la base de datos y su usuario
 
@@ -108,15 +108,15 @@ SHOW TABLES;
 EXIT;
 ```
 
-La respuesta tiene que ser esta:
+La respuesta es esta:
 
 ```
-Empty set
+Empty set (0,001 sec)
 ```
 
 Esto significa que la base de datos existe y el usuario puede entrar, pero todavía no hay tablas.
 
-![Comprobación de MariaDB](img/comprobacion-mariadb.png)
+![Comprobación de MariaDB](wordpress_2.png)
 
 - ¿Por qué creamos wp_user en lugar de usar root? ¿Qué significa wordpress.* en la orden GRANT?
 
@@ -149,11 +149,11 @@ Las carpetas más importantes son:
 - wp-includes: el núcleo de WordPress, no se toca.
 - wp-content: los temas, plugins e imágenes subidas.
 
-![Contenido de la carpeta de WordPress](img/carpeta-wordpress.png)
+![Contenido de la carpeta de WordPress](wordpress_3.png)
 
 - ¿Qué carpeta guarda tus temas, plugins e imágenes subidas? ¿Por qué colocamos WordPress en su propia carpeta y no dentro de la de otro de tus sitios?
 
-Los guarda la carpeta wp-content. Colocamos WordPress en su propia carpeta para que sus ficheros no se mezclen con los de otros sitios. Así cada sitio es independiente y un cambio en uno no afecta a los demás.
+Los guarda la carpeta wp-content. Colocamos WordPress en su propia carpeta para que sus ficheros no se mezclen con los de Iris. Así cada sitio es independiente y un cambio en uno no afecta al otro.
 
 ### 4. Propietario y permisos
 
@@ -170,7 +170,7 @@ ls -l /var/www/wordpress
 - 755 en carpetas: el propietario lee, escribe y entra, y los demás solo leen y entran.
 - 644 en ficheros: el propietario lee y escribe, y los demás solo leen.
 
-![Propietario y permisos](img/permisos-wordpress.png)
+![Propietario y permisos](wordpress_4.png)
 
 - ¿Qué pasaría si el propietario fuera root? ¿Por qué no se usa nunca 777?
 
@@ -184,9 +184,9 @@ Si el propietario fuera root, Apache no podría escribir en la carpeta. WordPres
 sudo nano /etc/apache2/ports.conf
 ```
 
-Añado Listen 8080 debajo de las líneas que ya existen, sin borrar ninguna.
+Añado Listen 8080 debajo de Listen 7009, sin borrar ninguna línea.
 
-![Fichero ports.conf](img/ports-conf.png)
+![Fichero ports.conf](wordpress_5.png)
 
 #### 5.2. Crear el fichero del sitio
 
@@ -217,7 +217,7 @@ Escribo este contenido:
 - Require all granted permite el acceso a cualquier visitante.
 - ErrorLog y CustomLog crean registros propios del sitio para saber qué falla.
 
-![Fichero wordpress.conf](img/wordpress-conf.png)
+![Fichero wordpress.conf](wordpress_6.png)
 
 #### 5.3. Activar el sitio
 
@@ -234,13 +234,18 @@ a2enmod rewrite activa el módulo de los enlaces permanentes y a2ensite activa e
 Syntax OK
 ```
 
-Compruebo que aparecen los sitios anteriores y el nuevo:
+Compruebo que aparecen el sitio anterior y el nuevo:
 
 ```bash
-ls /etc/apache2/sites-enabled/
+cd /etc/apache2/sites-enabled/
+ls
 ```
 
-![Sitios habilitados](img/sitios-habilitados.png)
+```
+iris.conf  wordpress.conf
+```
+
+![Sitios habilitados](wordpress_7.png)
 
 - ¿Por qué no ha hecho falta tocar ninguno de los sitios anteriores? ¿Qué dos cosas distinguen a este sitio de los demás?
 
@@ -251,7 +256,7 @@ No ha hecho falta porque WordPress tiene su propio fichero de configuración y A
 Desde el navegador de la máquina anfitrión entro en la dirección de la VM con el puerto 8080. La IP se puede ver con ip a.
 
 ```
-http://IP_DE_TU_VM:8080
+http://192.168.56.10:8080
 ```
 
 Elijo el idioma español y en la pantalla de la base de datos pongo estos datos:
@@ -264,19 +269,19 @@ Elijo el idioma español y en la pantalla de la base de datos pongo estos datos:
 | Servidor de la base de datos | localhost |
 | Prefijo de tablas | wp_ |
 
-![Pantalla de la base de datos](img/wp-base-datos.png)
+![Pantalla de la base de datos](wordpress_8.png)
 
-Después pongo los datos del sitio: el título, un usuario administrador que no sea admin, una contraseña segura y un correo. También marco la opción de disuadir a los motores de búsqueda porque es un servidor de pruebas.
+Después pongo los datos del sitio: el título gabrigv, el usuario administrador gabriel, una contraseña y un correo. También marco la opción de pedir a los motores de búsqueda que no indexen el sitio porque es un servidor de pruebas.
 
-![Datos del sitio](img/wp-datos-sitio.png)
+![Datos del sitio](wordpress_9.png)
 
-Al terminar inicio sesión con el administrador y llego al Escritorio de WordPress.
+Al terminar inicio sesión con el administrador y llego al Escritorio de WordPress. La versión instalada es la 7.1.3.
 
-![Escritorio de WordPress](img/wp-escritorio.png)
+![Escritorio de WordPress](wordpress_10.png)
 
 - ¿Qué diferencia hay entre wp_user y el usuario administrador de WordPress? ¿Dónde vive cada uno?
 
-wp_user es el usuario que usa WordPress para conectarse a MariaDB. Vive en los usuarios de MariaDB. El administrador es la persona que entra al panel de la web para gestionarla, y vive en la tabla wp_users de la base de datos wordpress.
+wp_user es el usuario que usa WordPress para conectarse a MariaDB. Vive en los usuarios de MariaDB. El administrador, gabriel en mi caso, es la persona que entra al panel de la web para gestionarla, y vive en la tabla wp_users de la base de datos wordpress.
 
 ### 7. ¿Dónde ha guardado WordPress cada cosa?
 
@@ -318,13 +323,13 @@ SELECT user_login FROM wp_users;
 EXIT;
 ```
 
-El asistente ha creado unas doce tablas. wp_options guarda los ajustes del sitio y wp_users guarda sus usuarios.
+El asistente ha creado 12 tablas. wp_options guarda los ajustes del sitio y wp_users guarda sus usuarios. En mi caso blogname es gabrigv y el único usuario es gabriel.
 
-![Tablas y consultas](img/wp-tablas-consultas.png)
+![Tablas y consultas](wordpress_11.png)
 
 - ¿Qué valor tiene siteurl? Relaciónalo con el aviso del apartado 6. ¿En qué tabla está el administrador que creaste?
 
-El valor de siteurl es COMPLETAR. Es la dirección que usé al instalar WordPress. Por eso hay que entrar siempre por esa dirección, ya que WordPress la tiene guardada en la base de datos y redirige a ella. El administrador está en la tabla wp_users.
+El valor de siteurl es http://192.168.56.10:8080. Es la dirección que usé al instalar WordPress. Por eso hay que entrar siempre por esa dirección, ya que WordPress la tiene guardada en la base de datos y redirige a ella. El administrador está en la tabla wp_users.
 
 ### 8. Primera entrada e imagen: ficheros frente a base de datos
 
@@ -341,13 +346,15 @@ SELECT ID, post_title, post_type, post_status FROM wp_posts ORDER BY ID DESC LIM
 EXIT;
 ```
 
+![Consulta de wp_posts](wordpress_12.png)
+
 ```bash
 ls -R /var/www/wordpress/wp-content/uploads
 ```
 
-La entrada aparece como una fila de la base de datos. La imagen aparece como un fichero dentro de wp-content/uploads y también como una fila de tipo attachment, que guarda sus datos.
+![Listado de uploads](wordpress_13.png)
 
-![Consulta y listado de uploads](img/wp-post-uploads.png)
+La entrada aparece como una fila de la base de datos de tipo post y estado publish. La imagen aparece como el fichero COMPLETAR dentro de wp-content/uploads y también como una fila de tipo attachment, que guarda sus datos.
 
 - ¿Qué se guarda en la base de datos y qué en ficheros? Si tuvieras que hacer una copia de seguridad completa de tu WordPress, ¿qué dos cosas copiarías?
 
@@ -360,11 +367,11 @@ systemctl is-active apache2 mariadb
 ls /etc/apache2/sites-enabled/
 ```
 
-Los dos servicios tienen que responder active y tienen que aparecer todos los sitios. Desde el navegador compruebo también que los sitios anteriores siguen funcionando.
+Los dos servicios responden active y aparecen iris.conf y wordpress.conf. Desde el navegador compruebo también que Iris sigue funcionando en http://192.168.56.10.
 
-![Comprobación final](img/comprobacion-final.png)
+![Comprobación final](wordpress_14.png)
 
-![Sitio anterior funcionando](img/sitio-anterior.png)
+![Iris funcionando](wordpress_15.png)
 
 | Elemento | Dónde | Estado |
 |---|---|---|
@@ -372,15 +379,13 @@ Los dos servicios tienen que responder active y tienen que aparecer todos los si
 | Usuario wp_user | MariaDB | Creado, con permisos solo sobre wordpress |
 | Ficheros de WordPress | /var/www/wordpress | Colocados, propietario www-data |
 | Sitio de Apache | wordpress.conf, puerto 8080 | Activo |
-| WordPress | COMPLETAR | Instalado y accesible |
-| Sitios anteriores | Sus puertos de siempre | Siguen funcionando |
+| WordPress | http://192.168.56.10:8080 | Instalado y accesible |
+| Sitio anterior (Iris) | Puerto 80 | Sigue funcionando |
 
 - ¿Por qué no se ha estropeado ninguno de los sitios anteriores al añadir WordPress?
 
-Porque no he modificado ni desactivado ninguno. WordPress tiene su propio fichero de configuración, su propia carpeta y su propio puerto, así que funciona de forma independiente.
+Porque no he modificado ni desactivado iris.conf. WordPress tiene su propio fichero de configuración, su propia carpeta y su propio puerto, así que funciona de forma independiente.
 
 ## 6. Conclusiones y problemas encontrados
 
-Con esta práctica he aprendido a instalar WordPress sobre el LAMP sin afectar a los sitios que ya tenía. También he visto que WordPress guarda el contenido en la base de datos y las imágenes, temas y plugins en ficheros.
-
-Problemas encontrados: COMPLETAR
+Con esta práctica he aprendido a instalar WordPress sobre el LAMP sin afectar al sitio que ya tenía. También he visto que WordPress guarda el contenido en la base de datos y las imágenes, temas y plugins en ficheros.
