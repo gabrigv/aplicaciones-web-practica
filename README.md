@@ -10,4 +10,5 @@ Repositorio para las practicas de aplicaciones web
 4.  [ApacheDNS](ConfigApache2/Apache2FakeDNS.md)
 5.  [Instalación-MariaDB](Instalación_MariaDB_PHP/practica_mariadb.md)
 6.  [Instalación-wordpress](Instalación-Wordpress/practica-wordpress.md)
-7.  [Boletin HTML Basico](UD2)
+7.  [Boletin HTML Basico Parte A](Boletin HTML/Parte A)
+8.  [Boletin HTML Basico Parte B](Boletin HTML/Parte B)
