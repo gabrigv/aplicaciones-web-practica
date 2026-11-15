@@ -120,3 +120,17 @@
 </body>
 </html>
 ```
+
+## Reflexión
+
+**1. ¿Qué ruta relativa usará estaciones.html para cargar primavera.jpg?**
+`imagenes/primavera.jpg`, porque estaciones.html está en la carpeta principal y la imagen está dentro de la subcarpeta `imagenes`.
+
+**2. ¿Qué pasaría si movieras las páginas de cada estación a una carpeta paginas/?**
+Dejarían de funcionar varias rutas y habría que cambiarlas:
+- En estaciones.html, los enlaces pasarían a ser `paginas/primavera.html`, etc.
+- Dentro de cada página de estación, la imagen pasaría a ser `../imagenes/primavera.jpg` (`..` = subir una carpeta).
+- El enlace de vuelta pasaría a ser `../estaciones.html`.
+
+**3. Si las fotos miden 600 × 600 y deben verse a 300 × 300, ¿las recortas o cambias el tamaño con HTML/CSS?**
+Cambio el tamaño con HTML/CSS (`style="width: 300px; height: 300px;"`), sin recortar la imagen. Así uso el mismo archivo en las dos páginas.
