@@ -12,7 +12,7 @@
     <title>Plantilla de 2.ºSMR</title>
 </head>
 <body style="background-color: lightyellow;">
-    <h2 style="text-align: center; border: 1px solid navy;">titulo del texto</h2>
+    <h2 style="text-align: center; border: 1px solid navy;">EL AMOR Y LA LOCURA</h2>
     <p style="text-align: justify;">
         Cuentan que una vez se reunieron en un lugar de la Tierra todos los sentimientos y
         cualidades de los hombres. Cuando el <b style="color: #666666;">aburrimiento</b> había bostezado por tercera vez, la
