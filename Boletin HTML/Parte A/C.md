@@ -81,3 +81,17 @@
 </body>
 </html>
 ```
+
+## Reflexión previa
+
+### 1. ¿Qué etiqueta usarás para cada párrafo y qué propiedad CSS consigue la justificación?
+
+Cada párrafo va en una etiqueta `<p>` y se justifica con la propiedad `text-align: justify;` dentro del atributo `style`.
+
+### 2. ¿Qué etiquetas sirven para marcar solo una parte de un párrafo?
+
+Las etiquetas en línea, como `<i>` para la cursiva de los comentarios, `<b>` para la negrita de los sentimientos y `<span>` para dar color o estilo a una parte del texto.
+
+### 3. ¿Cómo evitas equivocarte con el color de cada sentimiento?
+
+Haciendo antes una lista con cada sentimiento y su color, y usando siempre el mismo código de color (por ejemplo, locura → #9c27b0 y amor → #ff0000). Así, cada vez que aparece un sentimiento, se copia el mismo color de la lista.
