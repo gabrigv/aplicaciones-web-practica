@@ -16,3 +16,4 @@ Repositorio para las practicas de aplicaciones web
     1. [Boletin HTML Basico Parte A](UD02/Boletin%20HTML/Parte%20A)
     2. [Boletin HTML Basico Parte B](UD02/Boletin%20HTML/Parte%20B)
     3. [Horario HTML](UD02/Tabla/horario.html)
+    4. [Tabla HTML](UD02/Tabla/tabla-hosting.html)
